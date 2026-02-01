@@ -11,7 +11,7 @@ import lombok.Data;
 public class BakeryItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
-    String name;
-    Double price;
+    private int id;
+    private String name;
+    private Double price;
 }
