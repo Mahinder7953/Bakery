@@ -15,7 +15,7 @@ public class OrderController {
     private OrderItemService orderItemService;
 
     @PostMapping("/order/{id}")
-    public void postMethodName(@PathVariable int id) {
+    public void placeOrder(@PathVariable int id) {
         orderItemService.placeOrder(id);
     }
     
