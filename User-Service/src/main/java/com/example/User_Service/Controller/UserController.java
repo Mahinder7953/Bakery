@@ -1,5 +1,7 @@
 package com.example.User_Service.Controller;
 
+import com.example.User_Service.dto.UserDto;
+import com.example.User_Service.response.UserReponsepayload;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.User_Service.Model.User;
@@ -25,6 +27,11 @@ public class UserController {
     @GetMapping("/user/{id}")
     public User getUserById(@PathVariable Long id) {
         return userService.getUserById(id);
+    }
+
+    @PostMapping("/user/verify")
+    public UserReponsepayload checkUser(@RequestBody UserDto user) {
+        return userService.checkUser(user);
     }
     
 }

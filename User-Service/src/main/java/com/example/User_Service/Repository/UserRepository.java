@@ -8,4 +8,6 @@ import com.example.User_Service.Model.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
+    User findByEmail(String email);
+
 }
