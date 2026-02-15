@@ -1,5 +1,7 @@
 package com.example.User_Service.Service;
 
+import com.example.User_Service.dto.UserDto;
+import com.example.User_Service.response.UserReponsepayload;
 import org.springframework.stereotype.Service;
 
 import com.example.User_Service.Model.User;
@@ -28,5 +30,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUserById(Long id) {
         return userRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public UserReponsepayload checkUser(UserDto user) {
+        User userData =  userRepository.findByEmail(user.getEmail());
+        UserReponsepayload payload = new UserReponsepayload();
+        payload.setId(userData.getId().toString());
+        payload.setUsername(userData.getName());
+        payload.setUserId(userData.getId());
+        return payload;
     }
 }
